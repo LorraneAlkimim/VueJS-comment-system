@@ -1,4 +1,6 @@
-# vuejs-cli
+# VueJS comment system
+
+> Sistema de comentários com Vue.js e Bootstrap
 
 ## Project setup
 ```
