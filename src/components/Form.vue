@@ -17,6 +17,7 @@
           name="message"
         ></textarea>
       </p>
+      <p v-if="typing">digitando...</p> 
       <button v-on:click="addComment" type="submit" class="btn btn-primary">
         Comentar
       </button>
@@ -28,7 +29,8 @@ export default {
   data() {
     return {
       name: '',
-      message: ''
+      message: '',
+      typing: false
     }
   },
   methods: {
@@ -37,11 +39,22 @@ export default {
       
       this.$emit('add-todo', {
         name: this.name,
-        message: this.message
+        message: this.message,
       })
 
       this.name = '';
       this.message = '';
+    }
+  },
+  watch: {
+    message() {
+      if(this.message) {
+        this.typing = true;
+  
+        setTimeout(() => {
+          this.typing = false;
+        }, 3000);
+      }
     }
   }
 }

@@ -51,11 +51,6 @@ export default {
         name: comment.name.trim() === '' ? 'Anônimo' : comment.name
       }))
     }
-  },
-  watch: {
-    comments(val) {
-      console.log('valor', val)
-    }
   }
 }
 </script>
